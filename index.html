@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Processo Seletivo Simplificado SME 002/2026 - Rio Bonito - Formulário de Inscrição - Nível Superior (Professor I)</title>
+  <title>Processo Seletivo Simplificado SME 002/2026 - Formulário de Inscrição - Nível Superior (Professor I)</title>
   <style>
     * { box-sizing: border-box; }
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 20px; }
     .container { max-width: 800px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-    h1 { color: #004085; font-size: 22px; border-bottom: 2px solid #004085; padding-bottom: 10px; margin-top: 0; line-height: 1.3; }
+    
+    h1 { color: #004085; font-size: 22px; border-bottom: 2px solid #004085; padding-bottom: 10px; margin-top: 10px; line-height: 1.3; }
     .aviso { background-color: #fff3cd; color: #856404; padding: 15px; border-left: 5px solid #ffc107; margin-bottom: 20px; border-radius: 4px; font-size: 14px; }
     .secao-titulo { font-size: 18px; color: #004085; margin-top: 25px; border-left: 4px solid #004085; padding-left: 10px; background: #e9ecef; padding-top: 5px; padding-bottom: 5px; }
     .form-group { margin-bottom: 18px; }
@@ -37,19 +38,19 @@
     button:hover { background-color: #218838; }
     button:disabled { background-color: #6c757d; cursor: not-allowed; }
     
-    /* Layout do Comprovante */
-    #comprovante { display: none; background: #fff; padding: 30px; border: 2px solid #28a745; border-radius: 8px; }
-    .comprovante-header { text-align: center; border-bottom: 2px solid #ccc; padding-bottom: 15px; margin-bottom: 20px; }
-    .protocolo-destaque { font-size: 24px; font-weight: bold; color: #004085; text-align: center; background: #e2e3e5; padding: 10px; border-radius: 4px; margin: 15px 0; }
-    .tabela-resumo { width: 100%; border-collapse: collapse; margin-top: 15px; }
-    .tabela-resumo td { padding: 8px; border-bottom: 1px solid #dee2e6; font-size: 14px; }
-    .tabela-resumo td:first-child { font-weight: bold; width: 40%; color: #495057; }
-    .btn-imprimir { background-color: #0056b3; margin-top: 20px; }
+    /* Layout da Confirmação */
+    #comprovante { display: none; background: #fff; padding: 30px; border: 2px solid #28a745; border-radius: 8px; text-align: center; }
+    .comprovante-header h2 { color: #004085; font-size: 20px; margin-bottom: 5px; }
+    .comprovante-header h3 { color: #333; font-size: 18px; margin-top: 0; margin-bottom: 25px; border-bottom: 2px solid #004085; padding-bottom: 10px; }
+    .status-sucesso { font-size: 22px; font-weight: bold; color: #28a745; margin: 20px 0; }
+    .msg-corpo { font-size: 16px; line-height: 1.6; color: #495057; margin: 20px 0; }
+    .msg-canais { font-size: 15px; line-height: 1.6; color: #555; margin-top: 20px; }
+    .link-oficial { font-size: 16px; font-weight: bold; color: #004085; display: inline-block; margin-top: 10px; text-decoration: none; }
+    .link-oficial:hover { text-decoration: underline; }
 
     @media print {
       body { background: white; padding: 0; }
       .container { box-shadow: none; border: none; width: 100%; max-width: 100%; }
-      .btn-imprimir { display: none; }
     }
   </style>
 </head>
@@ -59,7 +60,7 @@
   
   <!-- FORMULÁRIO -->
   <div id="box-formulario">
-    <h1>Processo Seletivo Simplificado SME 002/2026 - Rio Bonito - Formulário de Inscrição - Nível Superior (Professor I)</h1>
+    <h1>Processo Seletivo Simplificado SME 002/2026 - Formulário de Inscrição - Nível Superior (Professor I)</h1>
     
     <div class="aviso">
       <strong>IMPORTANTE:</strong> O candidato poderá se inscrever para apenas um cargo ofertado pela Secretaria Municipal de Educação. Todas as informações prestadas deverão ser comprovadas no momento da convocação, sob pena de desclassificação.
@@ -230,37 +231,25 @@
     </form>
   </div>
 
-  <!-- COMPROVANTE (TELA DE CONFIRMAÇÃO) -->
+  <!-- TELA DE CONFIRMAÇÃO DA INSCRIÇÃO -->
   <div id="comprovante">
     <div class="comprovante-header">
       <h2>SECRETARIA MUNICIPAL DE EDUCAÇÃO DE RIO BONITO</h2>
-      <h3>COMPROVANTE DE INSCRIÇÃO - EDITAL Nº 002/2026</h3>
+      <h3>CONFIRMAÇÃO DE INSCRIÇÃO - EDITAL Nº 002/2026</h3>
     </div>
 
-    <p style="text-align: center; color: #28a745; font-weight: bold;">Inscrição realizada com sucesso!</p>
-    
-    <div class="protocolo-destaque">
-      PROTOCOLO: <span id="comp-protocolo"></span>
+    <div class="status-sucesso">
+      Inscrição realizada com sucesso!
     </div>
 
-    <table class="tabela-resumo">
-      <tr><td>Data/Hora da Inscrição:</td><td id="comp-data"></td></tr>
-      <tr><td>Cargo Pretendido:</td><td id="comp-cargo"></td></tr>
-      <tr><td>Nome Completo:</td><td id="comp-nome"></td></tr>
-      <tr><td>CPF:</td><td id="comp-cpf"></td></tr>
-      <tr><td>E-mail:</td><td id="comp-email"></td></tr>
-      <tr><td>Celular:</td><td id="comp-celular"></td></tr>
-      <tr><td>Condição PCD:</td><td id="comp-pcd"></td></tr>
-      <tr><td>Cursos de Capacitação:</td><td><span id="comp-cursos"></span> Horas</td></tr>
-      <tr><td>Experiência na Área:</td><td><span id="comp-exp"></span> Meses</td></tr>
-      <tr><td>Títulos Declarados:</td><td id="comp-titulos"></td></tr>
-    </table>
-
-    <div style="margin-top: 25px; font-size: 12px; color: #6c757d; text-align: center;">
-      Este comprovante deve ser impresso ou salvo pelo candidato.
+    <div class="msg-corpo">
+      Sua inscrição no Processo Seletivo Simplificado SME 002/2026 foi realizada com sucesso.
     </div>
 
-    <button class="btn-imprimir" onclick="window.print()">IMPRIMIR OU SALVAR EM PDF</button>
+    <div class="msg-canais">
+      Acompanhe as informações, publicações e convocações do processo seletivo pelos canais oficiais da Secretaria Municipal de Educação.<br>
+      <a href="https://www.riobonito.rj.gov.br/seletivoeducacao" target="_blank" class="link-oficial">www.riobonito.rj.gov.br/seletivoeducacao</a>
+    </div>
   </div>
 
 </div>
@@ -286,12 +275,11 @@
     input.value = value;
   }
 
-  // Função matemática para validação oficial de CPF
+  // Função para validação matemática de CPF
   function validarCPF(cpf) {
     cpf = cpf.replace(/\D/g, "");
     if (cpf.length !== 11) return false;
     
-    // Bloqueia CPFs com dígitos todos iguais (111.111.111-11, 000.000.000-00, etc.)
     if (/^(\d)\1{10}$/.test(cpf)) return false;
 
     let soma = 0;
@@ -335,7 +323,6 @@
 
     const cpfInput = document.getElementById('cpf').value;
 
-    // Executa a validação do CPF
     if (!validarCPF(cpfInput)) {
       alert("Por favor, digite um CPF válido. O número de CPF digitado é inválido.");
       document.getElementById('cpf').focus();
@@ -378,23 +365,6 @@
     .then(res => res.json())
     .then(response => {
       if(response.result === 'success') {
-        document.getElementById('comp-protocolo').innerText = response.protocolo;
-        document.getElementById('comp-data').innerText = response.dataHora;
-        document.getElementById('comp-cargo').innerText = dados.cargo;
-        document.getElementById('comp-nome').innerText = dados.nome;
-        document.getElementById('comp-cpf').innerText = dados.cpf;
-        document.getElementById('comp-email').innerText = dados.email;
-        document.getElementById('comp-celular').innerText = dados.celular;
-        document.getElementById('comp-pcd').innerText = dados.pcd === 'Sim' ? `Sim (${dados.deficienciaTipo})` : 'Não';
-        document.getElementById('comp-cursos').innerText = dados.cursosHoras;
-        document.getElementById('comp-exp').innerText = dados.experienciaMeses;
-        
-        let titulos = [];
-        if(dados.pos === "1") titulos.push("Pós-Graduação");
-        if(dados.mestrado === "1") titulos.push("Mestrado");
-        if(dados.doutorado === "1") titulos.push("Doutorado");
-        document.getElementById('comp-titulos').innerText = titulos.length > 0 ? titulos.join(", ") : "Nenhum informado";
-
         document.getElementById('box-formulario').style.display = 'none';
         document.getElementById('comprovante').style.display = 'block';
         window.scrollTo(0, 0);
